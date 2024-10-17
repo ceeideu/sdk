@@ -1,0 +1,74 @@
+# Link: This file contains all available configuration options
+# https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
+
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - github.com/ceeideu/sdk
+  funlen:
+    lines: 200
+    statements: 60
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 2
+    min-occurrences: 3
+  gocognit:
+    min-complexity: 50
+  gomoddirectives:
+    replace-local: true
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+    disabled-checks:
+      - hugeParam
+      - ifElseChain
+      - whyNoLint
+      - unnamedResult
+  gocyclo:
+    min-complexity: 20
+  cyclop:
+    max-complexity: 20
+  lll:
+    line-length: 140
+  misspell:
+    locale: US
+  varnamelen:
+    min-name-length: 2
+linters:
+  enable-all: true
+  disable:
+    - testpackage
+    - exhaustruct
+    - wsl
+    #disabled because deprecated:
+    - deadcode
+    - exhaustivestruct
+    - golint
+    - interfacer
+    - maligned
+    - nosnakecase
+    - scopelint
+    - structcheck
+    - varcheck
+    - ifshort
+issues:
+  exclude-rules:
+    - path: '(.+)_test.go'
+      linters:
+        - funlen
+        - dupl
+    - path: _test\.go
+      linters:
+        - goerr113
+        - gochecknoglobals
+run:
+  timeout: 5m
+  
