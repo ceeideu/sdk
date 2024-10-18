@@ -1,0 +1,36 @@
+name: Go Build, Test, and Lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'  # Specify the required Go version
+
+      - name: Build the app
+        run: |
+          go mod tidy  # Ensure dependencies are up to date
+          go build -v ./...  # Build the application
+
+      - name: Run tests
+        run: |
+          go test -v ./...  # Run tests for all packages
+          
+      - name: Run golangci-lint
+        run: |
+          chmod +x ./golangci-lint  # Ensure binary is executable
+          ./golangci-lint run ./...  # Lint the code
