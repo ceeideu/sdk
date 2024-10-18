@@ -1,0 +1,1 @@
+![cicd](https://github.com/ceeideu/sdk/actions/workflows/cicd.yml/badge.svg)
