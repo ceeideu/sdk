@@ -2,11 +2,8 @@ name: Go Build, Test, and Lint
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
   pull_request:
-    branches:
-      - main
 
 jobs:
   build-test-lint:
@@ -19,18 +16,18 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.20'  # Specify the required Go version
+          go-version: '1.21'  
 
       - name: Build the app
         run: |
-          go mod tidy  # Ensure dependencies are up to date
-          go build -v ./...  # Build the application
+          go mod tidy  
+          go build -v ./... 
 
       - name: Run tests
         run: |
-          go test -v ./...  # Run tests for all packages
+          go test -v ./... 
           
       - name: Run golangci-lint
         run: |
-          chmod +x ./golangci-lint  # Ensure binary is executable
-          ./golangci-lint run ./...  # Lint the code
+          chmod +x ./golangci-lint
+          ./golangci-lint run ./...
