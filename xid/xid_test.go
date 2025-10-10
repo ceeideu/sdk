@@ -79,9 +79,9 @@ func TestTypeOf_String(t *testing.T) {
 			want: "unknown",
 		},
 		{
-			name: "email",
+			name: "email_hash",
 			tr:   TypeOfEmail,
-			want: "email",
+			want: "email_hash",
 		},
 		{
 			name: "foo",

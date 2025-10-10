@@ -34,7 +34,7 @@ const (
 	TypeOfHex     = TypeOf(2)
 	TypeOfLTID    = TypeOf(3)
 
-	Email = "email"
+	Email = "email_hash"
 	Phone = "phone"
 	Hex   = "hex"
 	LTID  = "ltid"
