@@ -1,7 +1,6 @@
 package hem
 
 import (
-	"encoding/base64"
 	"encoding/hex"
 	"errors"
 	"fmt"
@@ -35,7 +34,7 @@ func FromEmail(email string) Request {
 
 	return Request{
 		Type:  xid.Email,
-		Value: base64.StdEncoding.EncodeToString(xid.Hash([]byte(em))),
+		Value: hex.EncodeToString(xid.Hash([]byte(em))),
 		Err:   err,
 	}
 }

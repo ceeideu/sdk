@@ -25,7 +25,7 @@ func TestFromEmail(t *testing.T) {
 			},
 			want: Request{
 				Type:  xid.Email,
-				Value: "MJTGXA3+NSOZ9YMT0UOP8HhJfo76zzaKf52RiaKL/7c=",
+				Value: "3094c65c0dfe352399f58313d1438ff078497e8efacf368a7f9d9189a28bffb7",
 			},
 		},
 	}
